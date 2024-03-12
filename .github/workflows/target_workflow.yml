@@ -1,0 +1,11 @@
+name: Target Workflow
+on:
+  repository_dispatch:
+    types: [trigger-other-workflow]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
