@@ -8,10 +8,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  trigger:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+  trigger_new_workflow:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Target Workflow
+        if: ${{ always() }}
         uses: peter-evans/repository-dispatch@v3
         with:
           token:  '${{ secrets.REPO_ACCESS_TOKENT }}'     #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 # Personal Access Token with repo scope
