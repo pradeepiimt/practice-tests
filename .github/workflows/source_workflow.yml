@@ -3,6 +3,7 @@ on:
   push:
     branches:
     - feature/pradeep
+    - master
   workflow_dispatch:
 
 jobs:
