@@ -15,8 +15,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Successful Step
         run: echo "This step is successful"
-      - name: Failing Step
-        run: exit 1  # Deliberately fail this step
+      # - name: Failing Step
+      #   run: exit 1  # Deliberately fail this step
       - name: Another Successful Step
         run: echo "This step is also successful"I     
   trigger_new_workflow:
