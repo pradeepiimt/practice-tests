@@ -1,0 +1,17 @@
+name: Trigger Other Workflow
+on:
+  push:
+    branches:
+    - feature/pradeep
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Target Workflow
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token:  '${{ secrets.GITHUB_TOKEN }}'     #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 # Personal Access Token with repo scope
+          event-type: trigger-other-workflow
+          client-payload: '{"github": ${{ toJson(github) }}}'
