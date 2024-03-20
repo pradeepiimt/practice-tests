@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+      - id: gcloud-manual
+        name: Access Secret Details befor Authentication
+        run: |
+          gcloud secrets versions access latest --secret=github-action
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v1'
