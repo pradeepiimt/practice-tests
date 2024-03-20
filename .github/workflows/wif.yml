@@ -4,7 +4,6 @@ on:
     branches:
     - feature/pradeep
   workflow_dispatch:
-
 jobs:
   get-secrets:
     runs-on: ubuntu-latest
@@ -15,7 +14,7 @@ jobs:
         run: echo "This step is successful"
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v0.4.0'
+        uses: 'google-github-actions/auth@v1'
         with:
           workload_identity_provider: 'projects/132917503746/locations/global/workloadIdentityPools/githubaction/providers/github'
           service_account: 'github-actions@exam-preparation-300390.iam.gserviceaccount.com'
