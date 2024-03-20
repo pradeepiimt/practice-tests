@@ -21,7 +21,14 @@ jobs:
         with:
           workload_identity_provider: 'projects/132917503746/locations/global/workloadIdentityPools/githubaction/providers/github'
           service_account: 'github-actions@exam-preparation-300390.iam.gserviceaccount.com'
-      - id: gcloud
-        name: Access Secret Details
-        run: |
-          gcloud secrets versions access latest --secret=github-action
+      # Install gcloud, `setup-gcloud` automatically picks up authentication from `auth`.
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+
+      - name: 'Use gcloud CLI'
+        run: gcloud compute instances list
+
+      # - id: gcloud
+      #   name: Access Secret Details
+      #   run: |
+      #     gcloud secrets versions access latest --secret=github-action
